@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stavba květu a rozmnožování krytosemenných rostlin</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1a3a2a;
+    --green-mid: #2d6a4f;
+    --green-light: #52b788;
+    --green-pale: #d8f3dc;
+    --gold: #c9a84c;
+    --cream: #faf7f0;
+    --warm-gray: #6b6560;
+    --dark: #1c1a17;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--green-deep);
+    color: white;
+    padding: 60px 80px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(82,183,136,0.12);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 200px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.08);
+  }
+  .header-tag {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 18px;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    max-width: 700px;
+  }
+  header p {
+    color: rgba(255,255,255,0.65);
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  /* MAIN LAYOUT */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  /* SECTION HEADINGS */
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: var(--green-deep);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--green-pale);
+    position: relative;
+  }
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 60px; height: 2px;
+    background: var(--green-mid);
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25em;
+    color: var(--green-mid);
+    margin: 28px 0 10px;
+  }
+
+  section { margin-bottom: 70px; }
+
+  p { margin-bottom: 14px; }
+
+  /* DIAGRAM CONTAINERS */
+  .diagram-box {
+    background: white;
+    border: 1px solid #e0dbd0;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 4px 24px rgba(26,58,42,0.06);
+    text-align: center;
+  }
+  .diagram-caption {
+    font-size: 13px;
+    color: var(--warm-gray);
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  /* INFO CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .card {
+    background: white;
+    border-left: 4px solid var(--green-light);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .card.gold { border-left-color: var(--gold); }
+  .card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05em;
+    color: var(--green-deep);
+    margin-bottom: 6px;
+  }
+  .card p { font-size: 15px; margin: 0; color: #444; }
+
+  /* KEY TERMS */
+  .term {
+    background: var(--green-pale);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.95em;
+  }
+
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+  }
+  th {
+    background: var(--green-mid);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #e8e3d8;
+  }
+  tr:nth-child(even) td { background: #f7f4ed; }
+
+  /* CALLOUT */
+  .callout {
+    background: linear-gradient(135deg, var(--green-deep), #2d5a40);
+    color: white;
+    border-radius: 12px;
+    padding: 24px 30px;
+    margin: 30px 0;
+  }
+  .callout h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    color: var(--green-light);
+    margin-bottom: 8px;
+  }
+  .callout p { color: rgba(255,255,255,0.85); font-size: 15px; margin: 0; }
+
+  /* STEP BOXES for fertilization process */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 24px 0;
+    position: relative;
+  }
+  .step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 16px 0;
+  }
+  .step-num {
+    background: var(--green-mid);
+    color: white;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--green-deep);
+    margin-bottom: 4px;
+    font-size: 1.05em;
+  }
+  .step-content p { font-size: 15px; color: #444; margin: 0; }
+
+  /* TOC */
+  .toc {
+    background: white;
+    border: 1px solid #e0dbd0;
+    border-radius: 10px;
+    padding: 24px 30px;
+    margin-bottom: 50px;
+  }
+  .toc h3 { margin-top: 0; color: var(--green-deep); }
+  .toc ol {
+    padding-left: 22px;
+    font-size: 15px;
+    color: var(--green-mid);
+  }
+  .toc li { padding: 3px 0; }
+
+  /* SVG Labels */
+  .svg-label { font-family: 'Source Serif 4', serif; }
+
+  @media print {
+    body { font-size: 13px; }
+    header { padding: 30px 40px; }
+    main { padding: 30px 20px; }
+    section { margin-bottom: 40px; page-break-inside: avoid; }
+    .diagram-box { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-tag">Biologie · 1. ročník gymnázia · Botanika</div>
+  <h1>Stavba květu a rozmnožování krytosemenných rostlin</h1>
+  <p>Výukový materiál · Gymnázium Beroun</p>
+</header>
+
+<main>
+
+  <div class="toc">
+    <h3>Obsah</h3>
+    <ol>
+      <li>Krytosemenné rostliny – úvod</li>
+      <li>Pohlavní vs. vegetativní rozmnožování</li>
+      <li>Stavba květu</li>
+      <li>Typy květů a souměrnost</li>
+      <li>Květenství</li>
+      <li>Opylení (polinace)</li>
+      <li>Oplodnění – dvojité oplodnění</li>
+      <li>Vznik semene a plodu</li>
+      <li>Šíření semen a plodů</li>
+    </ol>
+  </div>
+
+  <!-- =========================================================== -->
+  <section id="uvod">
+    <div class="section-number">01 / Úvod</div>
+    <h2>Krytosemenné rostliny</h2>
+    <p>
+      <span class="term">Krytosemenné rostliny</span> (Magnoliophyta / Angiospermae) jsou nejpočetnější a nejrozšířenější skupinou rostlin na Zemi – zahrnují přibližně <strong>300 000 druhů</strong>. Jejich hlavním znakem je, že semena jsou ukryta (kryta) v plodu, který se vyvinul ze semeníku.
+    </p>
+    <p>
+      Klíčovým orgánem rozmnožování je <span class="term">květ</span> – přeměněný výhonek (zkrácená osa s přeměněnými listy), jehož funkcí je zajistit <em>opylení</em> a následné <em>oplodnění</em>.
+    </p>
+    <!-- SVG srovnání zárodku jednoděložných a dvouděložných -->
+    <div class="diagram-box">
+      <svg viewBox="0 0 680 380" width="100%" style="max-width:680px;">
+
+        <!-- ===== JEDNODĚLOŽNÉ – levá polovina ===== -->
+        <text x="170" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-size="15" fill="#1a3a2a" font-weight="700">Jednoděložné</text>
+        <text x="170" y="38" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#666">(Monocotyledonae)</text>
+
+        <text x="170" y="62" text-anchor="middle" font-family="Source Serif 4,serif" font-size="12" fill="#2d6a4f" font-weight="600">zárodek v semenu</text>
+        <!-- osemení -->
+        <ellipse cx="170" cy="108" rx="52" ry="42" fill="#e8f5e9" stroke="#81c784" stroke-width="1.5"/>
+        <!-- endosperm -->
+        <ellipse cx="185" cy="108" rx="35" ry="30" fill="#c8e6c9" stroke="#66bb6a" stroke-width="1"/>
+        <text x="206" y="103" font-family="Source Serif 4,serif" font-size="9" fill="#388e3c">endo-</text>
+        <text x="206" y="114" font-family="Source Serif 4,serif" font-size="9" fill="#388e3c">sperm</text>
+        <!-- zárodek s 1 dělohami -->
+        <ellipse cx="155" cy="108" rx="18" ry="26" fill="#a5d6a7" stroke="#388e3c" stroke-width="1.2"/>
+        <!-- 1 děloha -->
+        <ellipse cx="148" cy="90" rx="10" ry="16" fill="#66bb6a" stroke="#2e7d32" stroke-width="1" transform="rotate(-15,148,90)"/>
+        <text x="124" y="76" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">1 děloha</text>
+        <line x1="135" y1="78" x2="143" y2="84" stroke="#555" stroke-width="0.8"/>
+        <!-- kořínek -->
+        <path d="M 158,132 Q 155,145 152,155" stroke="#388e3c" stroke-width="2" fill="none"/>
+        <text x="116" y="155" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">koříček</text>
+        <line x1="134" y1="153" x2="150" y2="153" stroke="#555" stroke-width="0.8"/>
+
+        <text x="170" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="12" fill="#2d6a4f" font-weight="600">klíček</text>
+        <!-- půda -->
+        <rect x="110" y="292" width="120" height="10" rx="3" fill="#795548" opacity="0.45"/>
+        <!-- vláknité kořeny -->
+        <line x1="170" y1="292" x2="165" y2="328" stroke="#5d4037" stroke-width="2"/>
+        <line x1="170" y1="292" x2="176" y2="326" stroke="#5d4037" stroke-width="1.8"/>
+        <line x1="168" y1="300" x2="156" y2="322" stroke="#5d4037" stroke-width="1.5"/>
+        <line x1="172" y1="302" x2="184" y2="322" stroke="#5d4037" stroke-width="1.5"/>
+        <line x1="165" y1="310" x2="155" y2="328" stroke="#5d4037" stroke-width="1.2"/>
+        <text x="118" y="334" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">vláknité kořeny</text>
+        <!-- stonek -->
+        <line x1="170" y1="292" x2="170" y2="212" stroke="#5a8a3c" stroke-width="3"/>
+        <!-- 1 list – rovnoběžná žilnatina -->
+        <path d="M 170,248 Q 145,238 134,218 Q 148,224 158,232 Q 165,238 169,246" fill="#81c784" stroke="#388e3c" stroke-width="1"/>
+        <path d="M 170,255 Q 196,245 208,226 Q 193,232 182,240 Q 174,246 171,253" fill="#81c784" stroke="#388e3c" stroke-width="1"/>
+        <!-- rovnoběžné žilky -->
+        <line x1="147" y1="228" x2="155" y2="237" stroke="#2e7d32" stroke-width="0.7" opacity="0.7"/>
+        <line x1="142" y1="224" x2="150" y2="232" stroke="#2e7d32" stroke-width="0.7" opacity="0.7"/>
+        <line x1="153" y1="233" x2="160" y2="241" stroke="#2e7d32" stroke-width="0.7" opacity="0.7"/>
+        <text x="106" y="250" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">rovnoběžná</text>
+        <text x="106" y="261" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">žilnatina</text>
+        <line x1="120" y1="253" x2="147" y2="246" stroke="#555" stroke-width="0.8"/>
+        <!-- děloha zůstává v zemi -->
+        <ellipse cx="170" cy="285" rx="12" ry="7" fill="#ffcc80" stroke="#e65100" stroke-width="1"/>
+        <text x="110" y="278" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">děloha pod</text>
+        <text x="110" y="288" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">zemí (štítek)</text>
+        <line x1="122" y1="284" x2="158" y2="284" stroke="#555" stroke-width="0.8"/>
+
+        <text x="170" y="350" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#1a3a2a" font-weight="600">1 děloha · rovnoběžná žilnatina · vláknité kořeny</text>
+        <text x="170" y="365" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">Př.: pšenice, kukuřice, tulipán, orchideje</text>
+
+        <!-- DĚLICÍ ČÁRA -->
+        <line x1="340" y1="10" x2="340" y2="378" stroke="#d0c8b8" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+        <!-- ===== DVOUDĚLOŽNÉ – pravá polovina ===== -->
+        <text x="510" y="22" text-anchor="middle" font-family="Playfair Display,serif" font-size="15" fill="#1a3a2a" font-weight="700">Dvouděložné</text>
+        <text x="510" y="38" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#666">(Dicotyledonae)</text>
+
+        <text x="510" y="62" text-anchor="middle" font-family="Source Serif 4,serif" font-size="12" fill="#2d6a4f" font-weight="600">zárodek v semenu</text>
+        <!-- osemení -->
+        <ellipse cx="510" cy="108" rx="52" ry="42" fill="#fff8e1" stroke="#ffd060" stroke-width="1.5"/>
+        <!-- 2 dělohy -->
+        <ellipse cx="496" cy="104" rx="19" ry="27" fill="#ffe0b2" stroke="#e65100" stroke-width="1.2" transform="rotate(-8,496,104)"/>
+        <ellipse cx="524" cy="104" rx="19" ry="27" fill="#ffe0b2" stroke="#e65100" stroke-width="1.2" transform="rotate(8,524,104)"/>
+        <!-- embryo osa -->
+        <rect x="507" y="90" width="6" height="36" rx="2" fill="#c9a84c"/>
+        <text x="510" y="146" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">2 dělohy</text>
+        <line x1="500" y1="143" x2="507" y2="130" stroke="#555" stroke-width="0.8"/>
+        <text x="558" y="98" font-family="Source Serif 4,serif" font-size="9" fill="#888">endosperm</text>
+        <text x="558" y="109" font-family="Source Serif 4,serif" font-size="9" fill="#888">redukovaný</text>
+
+        <text x="510" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="12" fill="#2d6a4f" font-weight="600">klíček</text>
+        <!-- půda -->
+        <rect x="450" y="292" width="120" height="10" rx="3" fill="#795548" opacity="0.45"/>
+        <!-- kůlový kořen -->
+        <path d="M 510,292 L 510,330 Q 510,338 508,344" stroke="#5d4037" stroke-width="2.5" fill="none"/>
+        <path d="M 510,308 Q 498,318 494,325" stroke="#5d4037" stroke-width="1.5" fill="none"/>
+        <path d="M 510,318 Q 522,325 527,330" stroke="#5d4037" stroke-width="1.5" fill="none"/>
+        <text x="546" y="330" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">kůlový kořen</text>
+        <!-- stonek -->
+        <line x1="510" y1="292" x2="510" y2="212" stroke="#5a8a3c" stroke-width="3"/>
+        <!-- 2 dělohy nad zemí (epigaeické klíčení) -->
+        <ellipse cx="496" cy="280" rx="15" ry="9" fill="#ffcc80" stroke="#e65100" stroke-width="1" transform="rotate(-15,496,280)"/>
+        <ellipse cx="524" cy="280" rx="15" ry="9" fill="#ffcc80" stroke="#e65100" stroke-width="1" transform="rotate(15,524,280)"/>
+        <text x="462" y="274" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">2 dělohy</text>
+        <text x="462" y="284" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">nad zemí</text>
+        <line x1="474" y1="280" x2="491" y2="280" stroke="#555" stroke-width="0.8"/>
+        <!-- listy s větvitou žilnatinou -->
+        <path d="M 510,250 Q 490,238 480,220" fill="#81c784" stroke="#388e3c" stroke-width="1"/>
+        <path d="M 510,250 Q 530,238 540,220" fill="#81c784" stroke="#388e3c" stroke-width="1"/>
+        <!-- větvitá žilnatina vlevo -->
+        <line x1="488" y1="236" x2="481" y2="226" stroke="#2e7d32" stroke-width="0.8"/>
+        <line x1="491" y1="231" x2="487" y2="223" stroke="#2e7d32" stroke-width="0.6" opacity="0.7"/>
+        <line x1="486" y1="239" x2="482" y2="231" stroke="#2e7d32" stroke-width="0.6" opacity="0.6"/>
+        <text x="458" y="248" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">větvitá</text>
+        <text x="458" y="259" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a">žilnatina</text>
+        <line x1="467" y1="251" x2="482" y2="245" stroke="#555" stroke-width="0.8"/>
+
+        <text x="510" y="350" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#1a3a2a" font-weight="600">2 dělohy · větvitá žilnatina · kůlový kořen</text>
+        <text x="510" y="365" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">Př.: dub, fazol, mák, slunečnice, růže</text>
+      </svg>
+      <p class="diagram-caption">Srovnání zárodku a klíčku jednoděložných (vlevo) a dvouděložných (vpravo) rostlin</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>Jednoděložné (Monocotyledonae)</h4>
+        <p>1 děloha, listy s rovnoběžnou žilnatinou, 3četné květy, vláknité kořeny, cévní svazky roztroušeny. Př.: trávy, lilie, orchideje, tulipán.</p>
+      </div>
+      <div class="card">
+        <h4>Dvouděložné (Dicotyledonae)</h4>
+        <p>2 dělohy, listy s větvitou žilnatinou, 4–5četné květy, kůlový kořen, cévní svazky v kruhu. Př.: růže, dub, slunečnice, fazol.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <section id="rozmnozovani-typy">
+    <div class="section-number">02 / Typy rozmnožování</div>
+    <h2>Pohlavní vs. vegetativní rozmnožování</h2>
+    <p>
+      Rostliny se mohou rozmnožovat dvěma základními způsoby: <span class="term">pohlavně</span> (generativně) nebo <span class="term">nepohlavně</span> (vegetativně). Oba způsoby mají své výhody i nevýhody a mnoho rostlin je kombinuje.
+    </p>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 680 260" width="100%" style="max-width:680px;">
+        <defs>
+          <marker id="arr2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#2d6a4f"/>
+          </marker>
+          <marker id="arr3" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#c9a84c"/>
+          </marker>
+        </defs>
+
+        <!-- POHLAVNÍ – levá polovina -->
+        <rect x="20" y="10" width="300" height="240" rx="14" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1.5"/>
+        <text x="170" y="38" text-anchor="middle" font-family="Playfair Display,serif" font-size="15" fill="#1a3a2a" font-weight="700">Pohlavní (generativní)</text>
+
+        <!-- ♀ gameta -->
+        <ellipse cx="100" cy="100" rx="28" ry="22" fill="#c8e6c9" stroke="#388e3c" stroke-width="1.5"/>
+        <text x="100" y="97" text-anchor="middle" font-family="Source Serif 4,serif" font-size="12" fill="#1a3a2a">♀ gameta</text>
+        <text x="100" y="111" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#555">vaječná buňka (n)</text>
+
+        <!-- ♂ gameta -->
+        <ellipse cx="240" cy="100" rx="28" ry="22" fill="#fff9c4" stroke="#f9a825" stroke-width="1.5"/>
+        <text x="240" y="97" text-anchor="middle" font-family="Source Serif 4,serif" font-size="12" fill="#1a3a2a">♂ gameta</text>
+        <text x="240" y="111" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#555">spermie (n)</text>
+
+        <!-- šipky ke splývání -->
+        <line x1="130" y1="100" x2="155" y2="100" stroke="#2d6a4f" stroke-width="2" marker-end="url(#arr2)"/>
+        <line x1="210" y1="100" x2="185" y2="100" stroke="#2d6a4f" stroke-width="2" marker-end="url(#arr2)"/>
+        <text x="170" y="97" text-anchor="middle" font-family="Source Serif 4,serif" font-size="16" fill="#2d6a4f">+</text>
+
+        <!-- zygota -->
+        <ellipse cx="170" cy="155" rx="32" ry="22" fill="#b2dfdb" stroke="#00897b" stroke-width="1.5"/>
+        <text x="170" y="152" text-anchor="middle" font-family="Source Serif 4,serif" font-size="12" fill="#1a3a2a" font-weight="600">zygota (2n)</text>
+        <text x="170" y="167" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#555">→ zárodek → nová rostlina</text>
+        <line x1="170" y1="122" x2="170" y2="132" stroke="#2d6a4f" stroke-width="2" marker-end="url(#arr2)"/>
+
+        <!-- klíčové vlastnosti -->
+        <text x="170" y="200" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#388e3c">✓ genetická různorodost potomků</text>
+        <text x="170" y="216" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#388e3c">✓ adaptace na nové podmínky</text>
+        <text x="170" y="232" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#c62828">✗ energeticky náročnější</text>
+
+        <!-- VEGETATIVNÍ – pravá polovina -->
+        <rect x="360" y="10" width="300" height="240" rx="14" fill="#fff8e1" stroke="#ffd060" stroke-width="1.5"/>
+        <text x="510" y="38" text-anchor="middle" font-family="Playfair Display,serif" font-size="15" fill="#1a3a2a" font-weight="700">Vegetativní (nepohlavní)</text>
+
+        <!-- mateřská rostlina -->
+        <ellipse cx="510" cy="95" rx="40" ry="28" fill="#ffe0b2" stroke="#e65100" stroke-width="1.5"/>
+        <text x="510" y="91" text-anchor="middle" font-family="Source Serif 4,serif" font-size="12" fill="#1a3a2a">mateřská</text>
+        <text x="510" y="106" text-anchor="middle" font-family="Source Serif 4,serif" font-size="12" fill="#1a3a2a">rostlina (2n)</text>
+
+        <!-- šipky na dceřiné -->
+        <line x1="480" y1="120" x2="440" y2="148" stroke="#c9a84c" stroke-width="2" marker-end="url(#arr3)"/>
+        <line x1="510" y1="124" x2="510" y2="148" stroke="#c9a84c" stroke-width="2" marker-end="url(#arr3)"/>
+        <line x1="540" y1="120" x2="580" y2="148" stroke="#c9a84c" stroke-width="2" marker-end="url(#arr3)"/>
+
+        <!-- dceřiné klony -->
+        <ellipse cx="430" cy="162" rx="30" ry="18" fill="#fff9c4" stroke="#f9a825" stroke-width="1.2"/>
+        <text x="430" y="165" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#555">klon (2n)</text>
+        <ellipse cx="510" cy="162" rx="30" ry="18" fill="#fff9c4" stroke="#f9a825" stroke-width="1.2"/>
+        <text x="510" y="165" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#555">klon (2n)</text>
+        <ellipse cx="590" cy="162" rx="30" ry="18" fill="#fff9c4" stroke="#f9a825" stroke-width="1.2"/>
+        <text x="590" y="165" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#555">klon (2n)</text>
+
+        <!-- vlastnosti -->
+        <text x="510" y="200" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#388e3c">✓ rychlé, energeticky úsporné</text>
+        <text x="510" y="216" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#388e3c">✓ potomci = genetické klony</text>
+        <text x="510" y="232" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#c62828">✗ nízká genetická variabilita</text>
+      </svg>
+      <p class="diagram-caption">Srovnání pohlavního a vegetativního rozmnožování</p>
+    </div>
+
+    <h3>Formy vegetativního rozmnožování</h3>
+    <table>
+      <thead>
+        <tr><th>Forma</th><th>Popis</th><th>Příklady</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Oddenky</strong></td><td>Podzemní plazivé stonky; z uzlin vyrůstají nové prýty</td><td>pýr, kostival, kosatec</td></tr>
+        <tr><td><strong>Hlízy</strong></td><td>Ztlustlé zásobní podzemní orgány</td><td>brambor (stonková), jiřina (kořenová)</td></tr>
+        <tr><td><strong>Cibule</strong></td><td>Zkrácený stonek s masitými dužnatými listy (šupinami)</td><td>cibule kuchyňská, tulipán, česnek</td></tr>
+        <tr><td><strong>Výběžky (stolony)</strong></td><td>Nadzemní plazivé prýty; na koncích se zakořeňují</td><td>jahoda, béry, houštěnka</td></tr>
+        <tr><td><strong>Oddělky (odnože)</strong></td><td>Výhonky vyrůstající z kořenů nebo báze stonku</td><td>třešeň, topolem, bodlák</td></tr>
+        <tr><td><strong>Listové rozmnožování</strong></td><td>Z listu nebo jeho části vyroste nová rostlina</td><td>begonie, sukulenty (Bryophyllum)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <h4>Využití v zemědělství a zahradnictví</h4>
+      <p>Vegetativní rozmnožování se hojně využívá při pěstování: řízkování (réva vinná, pelargónie), roubování (ovocné stromy), dělení trsů (okrasné trávy, kopřivovec) nebo in vitro množení (orchideje, brambory bez virů). Výhodou je zachování přesných vlastností odrůdy.</p>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <section id="stavba-kvetu">
+    <div class="section-number">03 / Stavba</div>
+    <h2>Stavba květu</h2>
+    <p>
+      Květ vyrůstá na <span class="term">stopce</span> (pedicelu), která se rozšiřuje v <span class="term">lůžko</span> (receptaculum). Na lůžku jsou v kruzích (cyklech) uspořádány jednotlivé části květu.
+    </p>
+
+    <!-- SVG DIAGRAM – průřez květ -->
+    <div class="diagram-box">
+      <svg viewBox="0 0 680 460" width="100%" style="max-width:680px;">
+        <defs>
+          <radialGradient id="petalG" cx="50%" cy="40%">
+            <stop offset="0%" stop-color="#ffd6e0"/>
+            <stop offset="100%" stop-color="#ffadc0"/>
+          </radialGradient>
+          <radialGradient id="petalG2" cx="50%" cy="40%">
+            <stop offset="0%" stop-color="#ffe8b0"/>
+            <stop offset="100%" stop-color="#ffd060"/>
+          </radialGradient>
+          <radialGradient id="ovaryG" cx="50%" cy="40%">
+            <stop offset="0%" stop-color="#c8e6c9"/>
+            <stop offset="100%" stop-color="#66bb6a"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Stopka -->
+        <rect x="326" y="370" width="28" height="80" rx="4" fill="#5a8a3c" opacity="0.9"/>
+        <!-- Lůžko -->
+        <ellipse cx="340" cy="370" rx="46" ry="14" fill="#4a7a2c"/>
+
+        <!-- Kališní lístky (sepaly) -->
+        <ellipse cx="340" cy="305" rx="18" ry="55" fill="#7cb87a" opacity="0.85" transform="rotate(-5,340,305)"/>
+        <ellipse cx="340" cy="305" rx="18" ry="55" fill="#7cb87a" opacity="0.85" transform="rotate(5,340,305)"/>
+        <ellipse cx="300" cy="320" rx="14" ry="48" fill="#7cb87a" opacity="0.75" transform="rotate(-30,300,320)"/>
+        <ellipse cx="380" cy="320" rx="14" ry="48" fill="#7cb87a" opacity="0.75" transform="rotate(30,380,320)"/>
+
+        <!-- Korunní lístky (petaly) -->
+        <ellipse cx="340" cy="250" rx="28" ry="80" fill="url(#petalG)" opacity="0.9"/>
+        <ellipse cx="280" cy="265" rx="24" ry="72" fill="url(#petalG)" opacity="0.85" transform="rotate(-30,280,265)"/>
+        <ellipse cx="400" cy="265" rx="24" ry="72" fill="url(#petalG)" opacity="0.85" transform="rotate(30,400,265)"/>
+        <ellipse cx="250" cy="290" rx="20" ry="65" fill="url(#petalG)" opacity="0.75" transform="rotate(-55,250,290)"/>
+        <ellipse cx="430" cy="290" rx="20" ry="65" fill="url(#petalG)" opacity="0.75" transform="rotate(55,430,290)"/>
+
+        <!-- Tyčinky (stamena) -->
+        <!-- filament + antera x5 -->
+        <g stroke="#c9a84c" stroke-width="2.5" fill="none">
+          <line x1="340" y1="350" x2="340" y2="280"/>
+          <line x1="325" y1="348" x2="318" y2="282"/>
+          <line x1="355" y1="348" x2="362" y2="282"/>
+          <line x1="313" y1="342" x2="298" y2="285"/>
+          <line x1="367" y1="342" x2="382" y2="285"/>
+        </g>
+        <!-- antery -->
+        <ellipse cx="340" cy="275" rx="7" ry="10" fill="#c9a84c"/>
+        <ellipse cx="317" cy="278" rx="6" ry="9" fill="#c9a84c"/>
+        <ellipse cx="363" cy="278" rx="6" ry="9" fill="#c9a84c"/>
+        <ellipse cx="297" cy="282" rx="5" ry="8" fill="#c9a84c"/>
+        <ellipse cx="383" cy="282" rx="5" ry="8" fill="#c9a84c"/>
+        <!-- pyl dots -->
+        <circle cx="333" cy="269" r="2" fill="#b8860b"/>
+        <circle cx="347" cy="268" r="2" fill="#b8860b"/>
+
+        <!-- Pestík (pistil) -->
+        <!-- Semeník -->
+        <ellipse cx="340" cy="352" rx="22" ry="18" fill="url(#ovaryG)"/>
+        <!-- vajíčka uvnitř semeníku -->
+        <ellipse cx="334" cy="353" rx="5" ry="4" fill="#a5d6a7" stroke="#388e3c" stroke-width="0.8"/>
+        <ellipse cx="346" cy="353" rx="5" ry="4" fill="#a5d6a7" stroke="#388e3c" stroke-width="0.8"/>
+        <!-- Čnělka -->
+        <rect x="336" y="325" width="8" height="28" rx="3" fill="#388e3c"/>
+        <!-- Blizna -->
+        <ellipse cx="340" cy="322" rx="11" ry="6" fill="#2e7d32"/>
+        <ellipse cx="340" cy="320" rx="9" ry="5" fill="#43a047"/>
+
+        <!-- POPISKY VLEVO -->
+        <text x="20" y="175" font-family="Source Serif 4,serif" font-size="13" fill="#1a3a2a" font-weight="600">Korunní lístek</text>
+        <text x="20" y="188" font-family="Source Serif 4,serif" font-size="11" fill="#555">(petalum)</text>
+        <line x1="120" y1="182" x2="255" y2="245" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <text x="20" y="250" font-family="Source Serif 4,serif" font-size="13" fill="#1a3a2a" font-weight="600">Kališní lístek</text>
+        <text x="20" y="263" font-family="Source Serif 4,serif" font-size="11" fill="#555">(sepalum)</text>
+        <line x1="120" y1="257" x2="306" y2="300" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <text x="20" y="330" font-family="Source Serif 4,serif" font-size="13" fill="#1a3a2a" font-weight="600">Lůžko</text>
+        <text x="20" y="343" font-family="Source Serif 4,serif" font-size="11" fill="#555">(receptaculum)</text>
+        <line x1="78" y1="337" x2="294" y2="365" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <text x="20" y="395" font-family="Source Serif 4,serif" font-size="13" fill="#1a3a2a" font-weight="600">Stopka</text>
+        <text x="20" y="408" font-family="Source Serif 4,serif" font-size="11" fill="#555">(pedicellus)</text>
+        <line x1="62" y1="402" x2="326" y2="405" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <!-- POPISKY VPRAVO -->
+        <text x="490" y="245" font-family="Source Serif 4,serif" font-size="13" fill="#1a3a2a" font-weight="600">Tyčinka</text>
+        <text x="490" y="258" font-family="Source Serif 4,serif" font-size="11" fill="#555">(stamen)</text>
+        <text x="490" y="272" font-family="Source Serif 4,serif" font-size="10" fill="#777">nitka + prašník</text>
+        <line x1="490" y1="255" x2="388" y2="278" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <text x="490" y="305" font-family="Source Serif 4,serif" font-size="13" fill="#1a3a2a" font-weight="600">Blizna</text>
+        <text x="490" y="318" font-family="Source Serif 4,serif" font-size="11" fill="#555">(stigma)</text>
+        <line x1="490" y1="312" x2="352" y2="320" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <text x="490" y="342" font-family="Source Serif 4,serif" font-size="13" fill="#1a3a2a" font-weight="600">Čnělka</text>
+        <text x="490" y="355" font-family="Source Serif 4,serif" font-size="11" fill="#555">(stylus)</text>
+        <line x1="490" y1="349" x2="345" y2="335" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <text x="490" y="378" font-family="Source Serif 4,serif" font-size="13" fill="#1a3a2a" font-weight="600">Semeník</text>
+        <text x="490" y="391" font-family="Source Serif 4,serif" font-size="11" fill="#555">(ovarium)</text>
+        <line x1="490" y1="385" x2="363" y2="358" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <!-- Braces / title -->
+        <text x="310" y="30" font-family="Playfair Display,serif" font-size="15" fill="#1a3a2a" font-weight="700" text-anchor="middle">
+          <tspan>PESTÍK</tspan>
+        </text>
+        <path d="M 260,38 Q 280,50 310,52 Q 340,50 360,38" stroke="#2d6a4f" stroke-width="1.5" fill="none"/>
+
+        <text x="500" y="218" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700" text-anchor="middle">ANDROECEUM</text>
+        <text x="500" y="232" font-family="Source Serif 4,serif" font-size="10" fill="#666" text-anchor="middle">(tyčinkový kruh)</text>
+      </svg>
+      <p class="diagram-caption">Schéma ideálního oboupohlavního čtyřčetného květu (průřez)</p>
+    </div>
+
+    <h3>Části květu (od vnějšku)</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Část</th>
+          <th>Lat. název</th>
+          <th>Funkce / popis</th>
+          <th>Souhrnné označení</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Kališní lístky</strong></td>
+          <td>sepala</td>
+          <td>Ochrana poupěte; obvykle zelené (někdy barevné)</td>
+          <td>Kalich (calyx)</td>
+        </tr>
+        <tr>
+          <td><strong>Korunní lístky</strong></td>
+          <td>petala</td>
+          <td>Lákání opylovačů (barva, vůně, nektaria)</td>
+          <td>Koruna (corolla)</td>
+        </tr>
+        <tr>
+          <td>Kalich + Koruna</td>
+          <td>—</td>
+          <td>Sterilní (ochranné + návnada)</td>
+          <td><em>Okvětí</em> (periantum / perigonium)</td>
+        </tr>
+        <tr>
+          <td><strong>Tyčinky</strong></td>
+          <td>stamina</td>
+          <td>Produkce pylu (mikrosporangia na prašnících)</td>
+          <td>Androeceum</td>
+        </tr>
+        <tr>
+          <td><strong>Pestík</strong></td>
+          <td>pistillum</td>
+          <td>Blizna (zachytí pyl) + čnělka + semeník (obsahuje vajíčka)</td>
+          <td>Gynaeceum</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <h4>Tip: Pamatuj si zkratku</h4>
+      <p>Kalich → Koruna → Tyčinky → Pestík — od vnějšku dovnitř. Jednoduché pravidlo: <em>K K T P</em>.</p>
+    </div>
+
+    <h3>Květní vzorec</h3>
+    <p>
+      <span class="term">Květní vzorec</span> je zkrácený symbolický zápis stavby květu. Používáme standardní symboly pro každou část:
+    </p>
+
+    <div class="diagram-box" style="text-align:left;">
+      <table style="margin:0; font-size:15px;">
+        <thead><tr><th>Symbol</th><th>Část / Význam</th></tr></thead>
+        <tbody>
+          <tr><td><strong>* nebo ⊕</strong></td><td>Aktinomorfní (pravidelný) květ</td></tr>
+          <tr><td><strong>↑ nebo ↕</strong></td><td>Zygomorfní (souměrný) květ</td></tr>
+          <tr><td><strong>♂ ♀ ⚥</strong></td><td>Samčí / samičí / oboupohlavní květ</td></tr>
+          <tr><td><strong>K (nebo Ca)</strong></td><td>Kalich (calyx) – počet kališních lístků</td></tr>
+          <tr><td><strong>C (nebo Co)</strong></td><td>Koruna (corolla) – počet korunních lístků</td></tr>
+          <tr><td><strong>P</strong></td><td>Okvětí jednoduché (perigonium) – nelze rozlišit K a C</td></tr>
+          <tr><td><strong>A</strong></td><td>Androeceum (tyčinky) – počet tyčinek</td></tr>
+          <tr><td><strong>G</strong></td><td>Gynaeceum (pestík / semeníky) – počet plodolistů</td></tr>
+          <tr><td><strong>Číslo</strong></td><td>Počet orgánů v daném kruhu</td></tr>
+          <tr><td><strong>∞</strong></td><td>Neurčitě mnoho (více než 12)</td></tr>
+          <tr><td><strong>Závorka ()</strong></td><td>Orgány jsou srostlé (srůst)</td></tr>
+          <tr><td><strong>Číslo s čárkou (nadřádkové)</strong></td><td>Semeník svrchní <u>G</u> (podtrženo = spodní semeník)</td></tr>
+          <tr><td><strong>+</strong></td><td>Orgány ve dvou kruzích</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Ukázky květních vzorců</h3>
+
+    <style>
+      .formula-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin: 20px 0;
+      }
+      .formula-card {
+        border-radius: 10px;
+        padding: 16px 18px 14px;
+        text-align: center;
+      }
+      .formula-card h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.05em;
+        color: #1a3a2a;
+        margin: 0 0 3px;
+      }
+      .formula-card .fc-sub {
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 10px;
+        font-family: 'Source Serif 4', serif;
+      }
+      .formula-card .fc-formula {
+        font-family: 'Source Serif 4', serif;
+        font-size: 1.3em;
+        font-weight: 600;
+        color: #c62828;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+      .formula-card .fc-formula u { text-underline-offset: 3px; }
+      .formula-card .fc-desc {
+        font-family: 'Source Serif 4', serif;
+        font-size: 12.5px;
+        color: #555;
+        text-align: left;
+        line-height: 1.5;
+      }
+      .formula-legend {
+        background: #f7f4ed;
+        border: 1px solid #e0dbd0;
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin-top: 14px;
+        font-family: 'Source Serif 4', serif;
+        font-size: 13px;
+        color: #444;
+        line-height: 1.6;
+      }
+      .formula-legend strong {
+        font-family: 'Playfair Display', serif;
+        font-size: 14px;
+        color: #1a3a2a;
+        display: block;
+        margin-bottom: 4px;
+      }
+    </style>
+
+    <div class="formula-grid">
+      <div class="formula-card" style="background:#fff0f5; border: 1.5px solid #ffadc0;">
+        <h4>Tulipán (Tulipa)</h4>
+        <div class="fc-sub">jednoděložná · jednoduché okvětí</div>
+        <div class="fc-formula">* ⚥ P3+3 A3+3 G(3)</div>
+        <div class="fc-desc">
+          * aktinomorfní · P3+3 = 2 kruhy po 3 okvětních lístcích ·
+          A3+3 = 6 tyčinek ve 2 kruzích · G(3) = 3 srostlé plodolisty, svrchní semeník
+        </div>
+      </div>
+
+      <div class="formula-card" style="background:#fff8e1; border: 1.5px solid #ffd060;">
+        <h4>Třešeň (Prunus avium)</h4>
+        <div class="fc-sub">dvouděložná · rozlišené K a C</div>
+        <div class="fc-formula">* ⚥ K5 C5 A∞ G1</div>
+        <div class="fc-desc">
+          K5 = 5 volných kališních lístků · C5 = 5 volných korunních lístků ·
+          A∞ = mnoho tyčinek · G1 = 1 volný plodolist, svrchní semeník
+        </div>
+      </div>
+
+      <div class="formula-card" style="background:#e8f5e9; border: 1.5px solid #81c784;">
+        <h4>Hrách setý (Pisum sativum)</h4>
+        <div class="fc-sub">dvouděložná · zygomorfní · motýlokvětá</div>
+        <div class="fc-formula">↑ ⚥ K(5) C1+2+(2) A(9)+1 G1</div>
+        <div class="fc-desc">
+          ↑ zygomorfní · K(5) = 5 srostlých kališních lístků ·
+          C1+2+(2) = vlajka + 2 křídla + 2 srostlé plátky člunek ·
+          A(9)+1 = 9 srostlých + 1 volná tyčinka · G1 = 1 plodolist
+        </div>
+      </div>
+
+      <div class="formula-card" style="background:#fce4ec; border: 1.5px solid #f48fb1;">
+        <h4>Jabloň (Malus domestica)</h4>
+        <div class="fc-sub">dvouděložná · spodní semeník (malvice)</div>
+        <div class="fc-formula">* ⚥ K(5) C5 A∞ <u>G</u>(5)</div>
+        <div class="fc-desc">
+          K(5) = 5 srostlých kališních lístků · C5 = 5 volných korunních lístků ·
+          A∞ = mnoho tyčinek · <u>G</u>(5) = 5 srostlých plodolistů, SPODNÍ semeník (G podtržené)
+        </div>
+      </div>
+
+      <div class="formula-card" style="background:#e3f2fd; border: 1.5px solid #90caf9;">
+        <h4>Kopretina (Leucanthemum)</h4>
+        <div class="fc-sub">dvouděložná · trubkovitý květ v úboru</div>
+        <div class="fc-formula">* ⚥ K0 C(5) A(5) <u>G</u>(2)</div>
+        <div class="fc-desc">
+          K0 = kalich přeměněn v chmýří (pappus) nebo zcela chybí ·
+          C(5) = 5 srostlých korunních lístků · A(5) = prašníky srůstají dohromady ·
+          <u>G</u>(2) = 2 srostlé plodolisty, SPODNÍ semeník
+        </div>
+      </div>
+
+      <div class="formula-card" style="background:#f3e5f5; border: 1.5px solid #ce93d8;">
+        <h4>Brambor (Solanum tuberosum)</h4>
+        <div class="fc-sub">dvouděložná · lilkovité</div>
+        <div class="fc-formula">* ⚥ K(5) C(5) A5 G(2)</div>
+        <div class="fc-desc">
+          K(5) = 5 srostlých kališních lístků · C(5) = 5 srostlých korunních lístků (hvězdicovitá koruna) ·
+          A5 = 5 volných tyčinek · G(2) = 2 srostlé plodolisty, svrchní semeník
+        </div>
+      </div>
+    </div>
+
+    <div class="formula-legend">
+      <strong>Jak číst květní vzorec</strong>
+      * = aktinomorfní &nbsp;·&nbsp; ↑ = zygomorfní &nbsp;·&nbsp; K = kalich &nbsp;·&nbsp; C = koruna &nbsp;·&nbsp;
+      P = jednoduché okvětí &nbsp;·&nbsp; A = tyčinky &nbsp;·&nbsp; G = plodolisty (semeníky)<br>
+      () = srostlé orgány &nbsp;·&nbsp; + = orgány ve 2 kruzích &nbsp;·&nbsp; ∞ = neurčitě mnoho &nbsp;·&nbsp;
+      <u>G</u> podtržené = spodní semeník &nbsp;·&nbsp; G nepodtržené = svrchní semeník<br>
+      <span style="font-size:11.5px;color:#888;">(V české tradici se někdy používá i číslice nadřádkově / podřádkově pro polohu semeníku.)</span>
+    </div>
+
+    <h3>Květní diagram</h3>
+    <p>
+      <span class="term">Květní diagram</span> je schematický průřez květem pohledem shora, zobrazující rozmístění a počet orgánů v jednotlivých kruzích. Ukazuje prostorové vztahy, které vzorec nedokáže plně vyjádřit (např. alternaci kruhů, srůsty, přisedání tyčinek ke koruně).
+    </p>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 680 420" width="100%" style="max-width:680px;">
+
+        <!-- ===== Tulipán – vlevo nahoře ===== -->
+        <text x="170" y="18" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Tulipán  * ⚥ P3+3 A3+3 G(3)</text>
+        <g transform="translate(170,110)">
+          <!-- Semeník uprostřed – 3 plodolisty -->
+          <ellipse cx="0" cy="0" rx="22" ry="18" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
+          <line x1="0" y1="-18" x2="0" y2="0" stroke="#388e3c" stroke-width="1"/>
+          <line x1="15.6" y1="9" x2="0" y2="0" stroke="#388e3c" stroke-width="1"/>
+          <line x1="-15.6" y1="9" x2="0" y2="0" stroke="#388e3c" stroke-width="1"/>
+          <!-- Tyčinky vnitřní kruh (3) – přesně mezi okvětními lístky -->
+          <circle cx="0" cy="-42" r="5.5" fill="#ffd060" stroke="#e65100" stroke-width="1.5"/>
+          <circle cx="36.4" cy="21" r="5.5" fill="#ffd060" stroke="#e65100" stroke-width="1.5"/>
+          <circle cx="-36.4" cy="21" r="5.5" fill="#ffd060" stroke="#e65100" stroke-width="1.5"/>
+          <!-- Tyčinky vnější kruh (3) – alternující -->
+          <circle cx="0" cy="-56" r="5.5" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.5"/>
+          <circle cx="48.5" cy="28" r="5.5" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.5"/>
+          <circle cx="-48.5" cy="28" r="5.5" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.5"/>
+          <!-- Okvětní lístky vnitřní (3) -->
+          <ellipse cx="0" cy="-76" rx="12" ry="18" fill="#ffadc0" stroke="#e91e63" stroke-width="1.2"/>
+          <ellipse cx="0" cy="-76" rx="12" ry="18" fill="#ffadc0" stroke="#e91e63" stroke-width="1.2" transform="rotate(120)"/>
+          <ellipse cx="0" cy="-76" rx="12" ry="18" fill="#ffadc0" stroke="#e91e63" stroke-width="1.2" transform="rotate(240)"/>
+          <!-- Okvětní lístky vnější (3) alternující -->
+          <ellipse cx="0" cy="-90" rx="11" ry="17" fill="#f8bbd0" stroke="#e91e63" stroke-width="1" opacity="0.7" transform="rotate(60)"/>
+          <ellipse cx="0" cy="-90" rx="11" ry="17" fill="#f8bbd0" stroke="#e91e63" stroke-width="1" opacity="0.7" transform="rotate(180)"/>
+          <ellipse cx="0" cy="-90" rx="11" ry="17" fill="#f8bbd0" stroke="#e91e63" stroke-width="1" opacity="0.7" transform="rotate(300)"/>
+        </g>
+        <!-- legenda tulipán -->
+        <rect x="20" y="215" width="10" height="10" rx="2" fill="#ffadc0" stroke="#e91e63" stroke-width="1"/>
+        <text x="34" y="224" font-family="Source Serif 4,serif" font-size="10" fill="#444">okvětní lístky</text>
+        <rect x="20" y="230" width="10" height="10" rx="2" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+        <text x="34" y="239" font-family="Source Serif 4,serif" font-size="10" fill="#444">tyčinky</text>
+        <rect x="20" y="245" width="10" height="10" rx="2" fill="#c8e6c9" stroke="#388e3c" stroke-width="1.5"/>
+        <text x="34" y="254" font-family="Source Serif 4,serif" font-size="10" fill="#444">pestík (3 plodolisty)</text>
+
+        <!-- ===== Třešeň – vpravo nahoře ===== -->
+        <text x="510" y="18" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Třešeň  * ⚥ K5 C5 A∞ G1</text>
+        <g transform="translate(510,110)">
+          <!-- pestík uprostřed (1 plodolist) -->
+          <ellipse cx="0" cy="0" rx="14" ry="14" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
+          <!-- tyčinky – mnoho, symbolicky 10 -->
+          <circle cx="0" cy="-30" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="28.5" cy="-9.3" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="17.6" cy="24.3" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="-17.6" cy="24.3" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="-28.5" cy="-9.3" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="0" cy="-42" r="4" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.2"/>
+          <circle cx="39.9" cy="-13" r="4" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.2"/>
+          <circle cx="24.7" cy="34" r="4" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.2"/>
+          <circle cx="-24.7" cy="34" r="4" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.2"/>
+          <circle cx="-39.9" cy="-13" r="4" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.2"/>
+          <!-- korunní lístky (5) -->
+          <ellipse cx="0" cy="-68" rx="13" ry="17" fill="#f8bbd0" stroke="#e91e63" stroke-width="1.2"/>
+          <ellipse cx="0" cy="-68" rx="13" ry="17" fill="#f8bbd0" stroke="#e91e63" stroke-width="1.2" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-68" rx="13" ry="17" fill="#f8bbd0" stroke="#e91e63" stroke-width="1.2" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-68" rx="13" ry="17" fill="#f8bbd0" stroke="#e91e63" stroke-width="1.2" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-68" rx="13" ry="17" fill="#f8bbd0" stroke="#e91e63" stroke-width="1.2" transform="rotate(288)"/>
+          <!-- kališní lístky (5) alternující -->
+          <ellipse cx="0" cy="-85" rx="10" ry="14" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" transform="rotate(36)"/>
+          <ellipse cx="0" cy="-85" rx="10" ry="14" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" transform="rotate(108)"/>
+          <ellipse cx="0" cy="-85" rx="10" ry="14" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" transform="rotate(180)"/>
+          <ellipse cx="0" cy="-85" rx="10" ry="14" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" transform="rotate(252)"/>
+          <ellipse cx="0" cy="-85" rx="10" ry="14" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" transform="rotate(324)"/>
+        </g>
+        <!-- legenda třešeň -->
+        <rect x="370" y="215" width="10" height="10" rx="2" fill="#c8e6c9" stroke="#388e3c" stroke-width="1"/>
+        <text x="384" y="224" font-family="Source Serif 4,serif" font-size="10" fill="#444">kališní lístky</text>
+        <rect x="370" y="230" width="10" height="10" rx="2" fill="#f8bbd0" stroke="#e91e63" stroke-width="1"/>
+        <text x="384" y="239" font-family="Source Serif 4,serif" font-size="10" fill="#444">korunní lístky</text>
+        <rect x="370" y="245" width="10" height="10" rx="2" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+        <text x="384" y="254" font-family="Source Serif 4,serif" font-size="10" fill="#444">tyčinky (2 kruhy)</text>
+
+        <!-- DĚLICÍ ČÁRA -->
+        <line x1="340" y1="0" x2="340" y2="275" stroke="#d0c8b8" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="0" y1="270" x2="680" y2="270" stroke="#d0c8b8" stroke-width="1" stroke-dasharray="5,4"/>
+
+        <!-- ===== Hrách – vlevo dole ===== -->
+        <text x="170" y="290" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Hrách  ↑ ⚥ K(5) C1+2+(2) A(9)+1 G1</text>
+        <g transform="translate(170,380)">
+          <!-- Semeník (1 plodolist) -->
+          <ellipse cx="0" cy="0" rx="10" ry="12" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
+          <!-- 10 tyčinek – zygomorfně rozmístěny -->
+          <circle cx="0" cy="-28" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="12" cy="-26" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="-12" cy="-26" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="20" cy="-18" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="-20" cy="-18" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="24" cy="-8" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="-24" cy="-8" r="4" fill="#ffd060" stroke="#e65100" stroke-width="1.2"/>
+          <circle cx="22" cy="5" r="4" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.2"/>
+          <circle cx="-22" cy="5" r="4" fill="#ffe0b2" stroke="#c9a84c" stroke-width="1.2"/>
+          <circle cx="0" cy="28" r="4" fill="#ffe082" stroke="#c9a84c" stroke-width="1.5"/>
+          <!-- korunní lístky: vlajka, 2 křídla, člunek (2 srostlé) -->
+          <!-- vlajka (nahoře, větší) -->
+          <ellipse cx="0" cy="-62" rx="18" ry="22" fill="#a5d6a7" stroke="#2e7d32" stroke-width="1.5"/>
+          <!-- 2 křídla -->
+          <ellipse cx="-35" cy="-22" rx="13" ry="18" fill="#81c784" stroke="#388e3c" stroke-width="1.2" transform="rotate(30,-35,-22)"/>
+          <ellipse cx="35" cy="-22" rx="13" ry="18" fill="#81c784" stroke="#388e3c" stroke-width="1.2" transform="rotate(-30,35,-22)"/>
+          <!-- člunek (2 srostlé, dole) -->
+          <ellipse cx="-14" cy="44" rx="12" ry="15" fill="#66bb6a" stroke="#2e7d32" stroke-width="1.2"/>
+          <ellipse cx="14" cy="44" rx="12" ry="15" fill="#66bb6a" stroke="#2e7d32" stroke-width="1.2"/>
+          <!-- čárka pro srostlost člunek -->
+          <line x1="-2" y1="35" x2="-2" y2="56" stroke="#2e7d32" stroke-width="0.8" stroke-dasharray="2,2"/>
+          <!-- kališní lístky – srostlé (5) -->
+          <path d="M -38,-48 Q -20,-72 0,-80 Q 20,-72 38,-48 Q 30,-42 20,-38 Q 0,-44 -20,-38 Z" fill="none" stroke="#7cb87a" stroke-width="2" stroke-dasharray="3,2"/>
+          <!-- osa souměrnosti -->
+          <line x1="0" y1="-95" x2="0" y2="68" stroke="#c62828" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+        </g>
+        <text x="170" y="412" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#c62828">— osa souměrnosti (zygomorfní)</text>
+
+        <!-- ===== Legenda pro čtení diagramů – vpravo dole ===== -->
+        <rect x="370" y="278" width="290" height="130" rx="8" fill="#f9f6f0" stroke="#d0c8b8" stroke-width="1.2"/>
+        <text x="515" y="298" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Jak číst květní diagram</text>
+        <text x="380" y="318" font-family="Source Serif 4,serif" font-size="11" fill="#444">1. Čteme od vnějšku k ose: kalich →</text>
+        <text x="384" y="331" font-family="Source Serif 4,serif" font-size="11" fill="#444">   koruna → tyčinky → pestík</text>
+        <text x="380" y="347" font-family="Source Serif 4,serif" font-size="11" fill="#444">2. Plná čára = volné orgány</text>
+        <text x="380" y="361" font-family="Source Serif 4,serif" font-size="11" fill="#444">3. Čárkovaný oblouk = srostlé orgány</text>
+        <text x="380" y="375" font-family="Source Serif 4,serif" font-size="11" fill="#444">4. Červená čárka = osa souměrnosti</text>
+        <text x="380" y="389" font-family="Source Serif 4,serif" font-size="11" fill="#444">5. Alternace kruhů = orgány nestojí</text>
+        <text x="384" y="400" font-family="Source Serif 4,serif" font-size="11" fill="#444">   nad sebou, ale střídají se</text>
+      </svg>
+      <p class="diagram-caption">Ukázkové květní diagramy: tulipán (vlevo nahoře), třešeň (vpravo nahoře), hrách – zygomorfní květ (vlevo dole)</p>
+    </div>
+
+    <div class="callout">
+      <h4>Vzorec vs. diagram – kdy co použít?</h4>
+      <p>Vzorec rychle a přesně sděluje počty a srůsty. Diagram navíc ukazuje rozmístění orgánů v prostoru a alternaci kruhů – je nezastupitelný u zygomorfních nebo složitých květů (motýlokvětí, orchideje).</p>
+    </div>
+
+    <h3>Vajíčko (ovulum)</h3>
+    <p>
+      Vajíčko se nachází uvnitř semeníku a je připojeno k jeho stěně <span class="term">placentou</span> prostřednictvím stopky zvané <span class="term">funikulus</span>. Skládá se z <span class="term">nucelu</span> (pletivo obklopující zárodečný váček), obaleného jedním nebo dvěma <span class="term">integumenty</span>. Otvor v integumentech se nazývá <span class="term">mikropyle</span> – kudy vstupuje pylová láčka při oplodnění. Opačný pól vajíčka se nazývá <span class="term">chalaza</span>.
+    </p>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 680 330" width="100%" style="max-width:680px;">
+
+        <!-- Placenta -->
+        <rect x="20" y="128" width="55" height="60" rx="6" fill="#a5d6a7" stroke="#388e3c" stroke-width="2"/>
+        <text x="47" y="152" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#1a3a2a" font-weight="600">placenta</text>
+        <text x="47" y="165" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#444">(stěna</text>
+        <text x="47" y="177" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#444">semeníku)</text>
+
+        <!-- Funikulus -->
+        <path d="M 75,158 Q 118,154 138,168" stroke="#5a8a3c" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <text x="106" y="145" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#2d6a4f" font-weight="600">funikulus</text>
+        <line x1="106" y1="148" x2="106" y2="157" stroke="#555" stroke-width="0.8"/>
+
+        <!-- Hilum -->
+        <circle cx="138" cy="168" r="5" fill="#388e3c"/>
+        <text x="128" y="200" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#2d6a4f" font-weight="600">hilum</text>
+        <line x1="128" y1="196" x2="133" y2="174" stroke="#555" stroke-width="0.8"/>
+
+        <!-- Vnější integument -->
+        <ellipse cx="310" cy="165" rx="148" ry="106" fill="#fff8e1" stroke="#ffd060" stroke-width="2.5"/>
+
+        <!-- Vnitřní integument -->
+        <ellipse cx="308" cy="167" rx="118" ry="82" fill="#ffe0b2" stroke="#e65100" stroke-width="2"/>
+
+        <!-- Nucel -->
+        <ellipse cx="305" cy="170" rx="86" ry="58" fill="#ffccbc" stroke="#bf360c" stroke-width="1.5"/>
+
+        <!-- Zárodečný váček -->
+        <ellipse cx="300" cy="172" rx="54" ry="37" fill="#fff9c4" stroke="#f9a825" stroke-width="1.5"/>
+
+        <!-- Vaječná buňka -->
+        <ellipse cx="260" cy="172" rx="16" ry="12" fill="#a5d6a7" stroke="#388e3c" stroke-width="1.5"/>
+        <text x="260" y="176" text-anchor="middle" font-family="Source Serif 4,serif" font-size="9" fill="#1a3a2a" font-weight="600">vaječná b.</text>
+
+        <!-- Synergidy (2) -->
+        <ellipse cx="246" cy="159" rx="9" ry="7" fill="#c8e6c9" stroke="#66bb6a" stroke-width="1"/>
+        <ellipse cx="246" cy="186" rx="9" ry="7" fill="#c8e6c9" stroke="#66bb6a" stroke-width="1"/>
+
+        <!-- Polární jádra (2) uprostřed -->
+        <ellipse cx="302" cy="170" rx="15" ry="10" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+        <ellipse cx="302" cy="170" rx="8" ry="6" fill="#ffee58"/>
+
+        <!-- Antipody (3) na chalazálním konci -->
+        <ellipse cx="342" cy="164" rx="9" ry="7" fill="#b0bec5" stroke="#546e7a" stroke-width="1"/>
+        <ellipse cx="348" cy="176" rx="9" ry="7" fill="#b0bec5" stroke="#546e7a" stroke-width="1"/>
+        <ellipse cx="336" cy="182" rx="9" ry="7" fill="#b0bec5" stroke="#546e7a" stroke-width="1"/>
+
+        <!-- Mikropyle -->
+        <path d="M 166,118 Q 158,145 160,165 Q 158,185 166,210" stroke="#ffd060" stroke-width="2.5" fill="none"/>
+        <path d="M 190,108 Q 180,138 182,165 Q 180,192 190,218" stroke="#e65100" stroke-width="2" fill="none"/>
+        <text x="136" y="102" font-family="Source Serif 4,serif" font-size="12" fill="#c62828" font-weight="700">mikropyle</text>
+        <line x1="166" y1="106" x2="172" y2="116" stroke="#c62828" stroke-width="1.5"/>
+
+        <!-- Šipka pylové láčky -->
+        <path d="M 102,162 Q 126,154 148,154 Q 162,152 174,158" stroke="#e65100" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+        <polygon points="174,154 184,158 174,162" fill="#e65100"/>
+        <text x="100" y="140" font-family="Source Serif 4,serif" font-size="10" fill="#e65100" font-weight="600">pylová láčka</text>
+
+        <!-- Chalaza -->
+        <text x="458" y="172" font-family="Source Serif 4,serif" font-size="11" fill="#546e7a" font-weight="600">chalaza</text>
+        <line x1="457" y1="175" x2="430" y2="175" stroke="#555" stroke-width="0.8"/>
+
+        <!-- Popisky vpravo – vrstvy -->
+        <text x="462" y="100" font-family="Source Serif 4,serif" font-size="11" fill="#1a3a2a" font-weight="600">vnější integument</text>
+        <line x1="460" y1="104" x2="428" y2="112" stroke="#888" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <text x="462" y="120" font-family="Source Serif 4,serif" font-size="11" fill="#1a3a2a" font-weight="600">vnitřní integument</text>
+        <line x1="460" y1="124" x2="424" y2="132" stroke="#888" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <text x="462" y="140" font-family="Source Serif 4,serif" font-size="11" fill="#1a3a2a" font-weight="600">nucel</text>
+        <line x1="460" y1="143" x2="390" y2="148" stroke="#888" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <text x="462" y="210" font-family="Source Serif 4,serif" font-size="11" fill="#1a3a2a" font-weight="600">zárodečný váček</text>
+        <line x1="460" y1="213" x2="353" y2="200" stroke="#888" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <!-- Popisky obsahu váčku dole -->
+        <text x="16" y="250" font-family="Source Serif 4,serif" font-size="11" fill="#388e3c" font-weight="600">vaječná buňka (1×)</text>
+        <line x1="124" y1="248" x2="246" y2="178" stroke="#388e3c" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <text x="16" y="266" font-family="Source Serif 4,serif" font-size="11" fill="#66bb6a" font-weight="600">synergidy (2×)</text>
+        <line x1="92" y1="264" x2="240" y2="164" stroke="#66bb6a" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <text x="16" y="282" font-family="Source Serif 4,serif" font-size="11" fill="#e6ac00" font-weight="600">polární jádra (2×)</text>
+        <line x1="114" y1="280" x2="288" y2="176" stroke="#f9a825" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <text x="16" y="298" font-family="Source Serif 4,serif" font-size="11" fill="#546e7a" font-weight="600">antipody (3×)</text>
+        <line x1="84" y1="296" x2="336" y2="184" stroke="#546e7a" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+        <!-- Celkový počet buněk -->
+        <text x="340" y="320" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#888" font-style="italic">Zárodečný váček = 7 buněk: 1 vaječná + 2 synergidy + 2 polární jádra + 3 antipody</text>
+
+        <!-- Osa mikropyle–chalaza -->
+        <text x="168" y="316" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#c62828">← mikropylární konec</text>
+        <text x="450" y="316" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#546e7a">chalazální konec →</text>
+      </svg>
+      <p class="diagram-caption">Průřez vajíčkem (ovulum) se zárodečným váčkem (7 buněk) – anatrópní vajíčko</p>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <section id="typy-kvetu">
+    <div class="section-number">04 / Typy květů</div>
+    <h2>Typy květů a souměrnost</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>Podle pohlavnosti</h4>
+        <p><strong>Oboupohlavní (hermafroditní)</strong> – tyčinky i pestík v 1 květu (většina rostlin). <strong>Jednopohlavní</strong> – buňka nebo <em>staminate</em> / <em>pistillate</em>.</p>
+      </div>
+      <div class="card">
+        <h4>Jednodomé vs. dvoudomé</h4>
+        <p><strong>Jednodomé</strong> (monoické) – ♂ i ♀ na 1 rostlině (kukuřice, líska). <strong>Dvoudomé</strong> (dioické) – ♂ a ♀ na různých rostlinách (vrba, konopí).</p>
+      </div>
+      <div class="card">
+        <h4>Aktinomorfní (pravidelné)</h4>
+        <p>Více rovin souměrnosti → paprsčitá symetrie. Př.: růže, tulipán, mák.</p>
+      </div>
+      <div class="card">
+        <h4>Zygomorfní (souměrné)</h4>
+        <p>Jediná rovina souměrnosti → bilaterální symetrie. Př.: hrachy, snapdragon, orchideje.</p>
+      </div>
+    </div>
+
+    <!-- SVG aktino vs zygo -->
+    <div class="diagram-box">
+      <svg viewBox="0 0 600 220" width="100%" style="max-width:600px;">
+        <!-- Aktinomorfní -->
+        <text x="150" y="20" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#1a3a2a" font-weight="700">Aktinomorfní</text>
+        <!-- Petals around center -->
+        <g transform="translate(150,120)">
+          <ellipse cx="0" cy="-55" rx="18" ry="40" fill="#ffadc0" opacity="0.85"/>
+          <ellipse cx="0" cy="-55" rx="18" ry="40" fill="#ffadc0" opacity="0.85" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-55" rx="18" ry="40" fill="#ffadc0" opacity="0.85" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-55" rx="18" ry="40" fill="#ffadc0" opacity="0.85" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-55" rx="18" ry="40" fill="#ffadc0" opacity="0.85" transform="rotate(288)"/>
+          <circle cx="0" cy="0" r="20" fill="#ffd060"/>
+          <!-- symmetry lines -->
+          <line x1="0" y1="-90" x2="0" y2="90" stroke="#2d6a4f" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+          <line x1="-90" y1="0" x2="90" y2="0" stroke="#2d6a4f" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+          <line x1="-63" y1="-63" x2="63" y2="63" stroke="#2d6a4f" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+          <line x1="63" y1="-63" x2="-63" y2="63" stroke="#2d6a4f" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+          <line x1="-75" y1="-30" x2="75" y2="30" stroke="#2d6a4f" stroke-width="1" stroke-dasharray="4,3" opacity="0.3"/>
+        </g>
+        <text x="150" y="210" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#666">více rovin souměrnosti</text>
+
+        <!-- Zygomorfní -->
+        <text x="450" y="20" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#1a3a2a" font-weight="700">Zygomorfní</text>
+        <g transform="translate(450,120)">
+          <!-- irregular flower - like papilionaceous -->
+          <ellipse cx="0" cy="-60" rx="30" ry="45" fill="#c8e6c9" opacity="0.9"/>
+          <ellipse cx="-40" cy="-10" rx="22" ry="35" fill="#a5d6a7" opacity="0.85" transform="rotate(-25,-40,-10)"/>
+          <ellipse cx="40" cy="-10" rx="22" ry="35" fill="#a5d6a7" opacity="0.85" transform="rotate(25,40,-10)"/>
+          <ellipse cx="-22" cy="35" rx="18" ry="28" fill="#81c784" opacity="0.8" transform="rotate(10,-22,35)"/>
+          <ellipse cx="22" cy="35" rx="18" ry="28" fill="#81c784" opacity="0.8" transform="rotate(-10,22,35)"/>
+          <circle cx="0" cy="0" r="15" fill="#ffd060"/>
+          <!-- 1 symmetry line only -->
+          <line x1="0" y1="-95" x2="0" y2="95" stroke="#2d6a4f" stroke-width="2" stroke-dasharray="5,3" opacity="0.8"/>
+        </g>
+        <text x="450" y="210" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#666">jediná rovina souměrnosti</text>
+      </svg>
+      <p class="diagram-caption">Srovnání souměrnosti květu: aktinomorfní (vlevo) vs. zygomorfní (vpravo)</p>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <section id="kvetenství">
+    <div class="section-number">05 / Květenství</div>
+    <h2>Květenství (Inflorescentia)</h2>
+    <p>
+      Soubor více květů na společné ose se nazývá <span class="term">květenství</span>. Může být <strong>jednoduché</strong> nebo <strong>složené</strong>.
+    </p>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 660 220" width="100%" style="max-width:660px;">
+        <defs>
+          <g id="flower-small">
+            <circle r="10" fill="#ffadc0"/>
+            <circle r="4" fill="#ffd060"/>
+          </g>
+        </defs>
+        <!-- 1. Hrozen -->
+        <g transform="translate(60,30)">
+          <text x="30" y="0" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#1a3a2a" font-weight="700">Hrozen</text>
+          <line x1="30" y1="10" x2="30" y2="170" stroke="#5a8a3c" stroke-width="3"/>
+          <!-- flowers on lateral -->
+          <line x1="30" y1="30" x2="55" y2="30" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(60,30)"/>
+          <line x1="30" y1="55" x2="55" y2="55" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(60,55)"/>
+          <line x1="30" y1="80" x2="55" y2="80" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(60,80)"/>
+          <line x1="30" y1="105" x2="55" y2="105" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(60,105)"/>
+          <line x1="30" y1="130" x2="55" y2="130" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(60,130)"/>
+          <text x="30" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">rybíz, šeřík</text>
+        </g>
+
+        <!-- 2. Klas -->
+        <g transform="translate(180,30)">
+          <text x="15" y="0" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#1a3a2a" font-weight="700">Klas</text>
+          <line x1="15" y1="10" x2="15" y2="170" stroke="#5a8a3c" stroke-width="3"/>
+          <circle cx="15" cy="35" r="7" fill="#c8e6c9" stroke="#388e3c" stroke-width="1"/>
+          <circle cx="15" cy="58" r="7" fill="#c8e6c9" stroke="#388e3c" stroke-width="1"/>
+          <circle cx="15" cy="81" r="7" fill="#c8e6c9" stroke="#388e3c" stroke-width="1"/>
+          <circle cx="15" cy="104" r="7" fill="#c8e6c9" stroke="#388e3c" stroke-width="1"/>
+          <circle cx="15" cy="127" r="7" fill="#c8e6c9" stroke="#388e3c" stroke-width="1"/>
+          <text x="15" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">pšenice, jitrocel</text>
+        </g>
+
+        <!-- 3. Okolík -->
+        <g transform="translate(280,30)">
+          <text x="40" y="0" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#1a3a2a" font-weight="700">Okolík</text>
+          <line x1="40" y1="110" x2="40" y2="170" stroke="#5a8a3c" stroke-width="3"/>
+          <line x1="40" y1="110" x2="40" y2="60" stroke="#5a8a3c" stroke-width="1.5"/>
+          <line x1="40" y1="110" x2="10" y2="68" stroke="#5a8a3c" stroke-width="1.5"/>
+          <line x1="40" y1="110" x2="70" y2="68" stroke="#5a8a3c" stroke-width="1.5"/>
+          <line x1="40" y1="110" x2="5" y2="100" stroke="#5a8a3c" stroke-width="1.5"/>
+          <line x1="40" y1="110" x2="75" y2="100" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(40,58)"/>
+          <use href="#flower-small" transform="translate(10,66)"/>
+          <use href="#flower-small" transform="translate(70,66)"/>
+          <use href="#flower-small" transform="translate(5,98)"/>
+          <use href="#flower-small" transform="translate(75,98)"/>
+          <text x="40" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">česnek, prvosenka</text>
+        </g>
+
+        <!-- 4. Chocholík – OPRAVENO: dolní větve delší, všechny květy ve stejné výšce -->
+        <g transform="translate(420,30)">
+          <text x="40" y="0" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#1a3a2a" font-weight="700">Chocholík</text>
+          <!-- hlavní osa – kratší, terminální květ nahoře -->
+          <line x1="40" y1="155" x2="40" y2="60" stroke="#5a8a3c" stroke-width="3"/>
+          <!-- terminální květ (nejmladší, uprostřed nahoře) -->
+          <use href="#flower-small" transform="translate(40,48)"/>
+          <!-- boční větve – čím níže na ose, tím delší stopka → všechny květy ve stejné rovině ~y=48 -->
+          <!-- větev vlevo 1 (z y=80, stopka délka 40) -->
+          <line x1="40" y1="80" x2="8" y2="48" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(-2,36)"/>
+          <!-- větev vpravo 1 (z y=80, stopka délka 40) -->
+          <line x1="40" y1="80" x2="72" y2="48" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(62,36)"/>
+          <!-- větev vlevo 2 (z y=108, stopka délka 66) -->
+          <line x1="40" y1="108" x2="-10" y2="48" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(-20,36)"/>
+          <!-- větev vpravo 2 (z y=108, stopka délka 66) -->
+          <line x1="40" y1="108" x2="90" y2="48" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(80,36)"/>
+          <!-- šipka naznačující rovnou horní linii -->
+          <line x1="-22" y1="47" x2="92" y2="47" stroke="#c9a84c" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
+          <text x="40" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">hlohy, třešeň, jeřáb</text>
+        </g>
+
+        <!-- 5. Úbor -->
+        <g transform="translate(545,30)">
+          <text x="30" y="0" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#1a3a2a" font-weight="700">Úbor</text>
+          <circle cx="30" cy="95" r="22" fill="#ffd060"/>
+          <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9"/>
+          <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(40,30,95)"/>
+          <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(80,30,95)"/>
+          <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(120,30,95)"/>
+          <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(160,30,95)"/>
+          <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(200,30,95)"/>
+          <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(240,30,95)"/>
+          <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(280,30,95)"/>
+          <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(320,30,95)"/>
+          <line x1="30" y1="118" x2="30" y2="170" stroke="#5a8a3c" stroke-width="3"/>
+          <text x="30" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">slunečnice, kopretina</text>
+        </g>
+      </svg>
+      <p class="diagram-caption">Základní typy jednoduchých květenství · zlatá čárkovaná linie u chocholíku = rovná horní rovina všech květů</p>
+    </div>
+
+    <!-- Složený okolík – samostatné schéma -->
+    <h3>Složený okolík (umbella composita)</h3>
+    <p>
+      <span class="term">Složený okolík</span> je typické květenství čeledi <em>Apiaceae</em> (miříkovité). Z jednoho bodu vybíhají <strong>paprsky 1. řádu</strong> (primární), na jejichž vrcholu se rozvíjí malý jednoduchý okolík – <strong>okolíček</strong>. Celé květenství tak vypadá jako plovoucí ploská „deštníková" plocha.
+    </p>
+    <div class="diagram-box">
+      <svg viewBox="0 0 500 260" width="100%" style="max-width:500px;">
+        <defs>
+          <g id="floret">
+            <circle r="5" fill="#ffadc0"/>
+            <circle r="2.5" fill="#ffd060"/>
+          </g>
+          <g id="umbellule">
+            <!-- malý okolíček: 6 kvítků kolem středu -->
+            <line x1="0" y1="0" x2="0" y2="-14" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="12" y2="-7" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="12" y2="7" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="0" y2="14" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="-12" y2="7" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="-12" y2="-7" stroke="#5a8a3c" stroke-width="1.2"/>
+            <use href="#floret" transform="translate(0,-14)"/>
+            <use href="#floret" transform="translate(12,-7)"/>
+            <use href="#floret" transform="translate(12,7)"/>
+            <use href="#floret" transform="translate(0,14)"/>
+            <use href="#floret" transform="translate(-12,7)"/>
+            <use href="#floret" transform="translate(-12,-7)"/>
+          </g>
+        </defs>
+
+        <!-- Hlavní stopka -->
+        <line x1="250" y1="240" x2="250" y2="170" stroke="#5a8a3c" stroke-width="4"/>
+        <!-- Středový bod -->
+        <circle cx="250" cy="170" r="5" fill="#2d6a4f"/>
+
+        <!-- 7 primárních paprsků z centra -->
+        <!-- vrchol -->
+        <line x1="250" y1="170" x2="250" y2="80" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(250,80)"/>
+
+        <!-- vpravo nahoře -->
+        <line x1="250" y1="170" x2="326" y2="98" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(326,98)"/>
+
+        <!-- vpravo -->
+        <line x1="250" y1="170" x2="348" y2="152" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(348,152)"/>
+
+        <!-- vpravo dole -->
+        <line x1="250" y1="170" x2="316" y2="218" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(316,218)"/>
+
+        <!-- vlevo dole -->
+        <line x1="250" y1="170" x2="184" y2="218" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(184,218)"/>
+
+        <!-- vlevo -->
+        <line x1="250" y1="170" x2="152" y2="152" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(152,152)"/>
+
+        <!-- vlevo nahoře -->
+        <line x1="250" y1="170" x2="174" y2="98" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(174,98)"/>
+
+        <!-- Popisky -->
+        <text x="250" y="260" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#888" font-style="italic">mrkev, petržel, fenykl, bolševník, kmín</text>
+
+        <!-- Šipka + popis paprsku 1. řádu -->
+        <line x1="250" y1="170" x2="250" y2="80" stroke="none"/>
+        <text x="290" y="125" font-family="Source Serif 4,serif" font-size="10" fill="#2d6a4f" font-weight="600">paprsek</text>
+        <text x="290" y="137" font-family="Source Serif 4,serif" font-size="10" fill="#2d6a4f" font-weight="600">1. řádu</text>
+        <line x1="288" y1="128" x2="268" y2="128" stroke="#2d6a4f" stroke-width="0.8"/>
+
+        <!-- Popis okolíčku -->
+        <text x="388" y="96" font-family="Source Serif 4,serif" font-size="10" fill="#c9a84c" font-weight="600">okolíček</text>
+        <text x="388" y="108" font-family="Source Serif 4,serif" font-size="10" fill="#c9a84c">(umbellula)</text>
+        <line x1="386" y1="100" x2="342" y2="100" stroke="#c9a84c" stroke-width="0.8"/>
+
+        <!-- Středový bod popis -->
+        <text x="204" y="168" text-anchor="end" font-family="Source Serif 4,serif" font-size="10" fill="#1a3a2a" font-weight="600">střed</text>
+        <text x="204" y="180" text-anchor="end" font-family="Source Serif 4,serif" font-size="10" fill="#1a3a2a">okolíku</text>
+        <line x1="206" y1="172" x2="244" y2="170" stroke="#555" stroke-width="0.8"/>
+      </svg>
+      <p class="diagram-caption">Složený okolík (umbella composita) – 7 primárních paprsků, každý zakončen okolíčkem (umbellulou)</p>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <section id="opyleni">
+    <div class="section-number">06 / Opylení</div>
+    <h2>Opylení (Polinace)</h2>
+    <p>
+      <span class="term">Opylení</span> je přenos pylových zrn z prašníku na bliznu pestíku. Opylení ≠ oplodnění – oplodnění nastane až po klíčení pylového zrna a prorůstání pylové láčky k vajíčku.
+    </p>
+
+    <h3>Přenosové mechanismy</h3>
+    <div class="card-grid">
+      <div class="card gold">
+        <h4>Větrem (anemogamie)</h4>
+        <p>Drobný, lehký, suchý pyl. Jednoduché nenápadné květy, velké množství pylu. Př.: trávy, bříza, líska, borovice.</p>
+      </div>
+      <div class="card gold">
+        <h4>Hmyzem (entomogamie)</h4>
+        <p>Barevné okvětí, vůně, nektar. Pyl lepkavý, větší, s výběžky. Př.: třešeň, řepka, jetele, jabloň.</p>
+      </div>
+      <div class="card gold">
+        <h4>Ptáky (ornitogamie)</h4>
+        <p>Typicky červené/oranžové trubkovité květy bohaté na nektar. Tropické oblasti. Př.: tropické aloe, helikonie.</p>
+      </div>
+      <div class="card gold">
+        <h4>Dalšími přenašeči</h4>
+        <p><em>Hydrogamie</em> – vodou (vodní rostliny). <em>Chiropterogamie</em> – netopýry (tropické rostliny). <em>Autogamie</em> – samoopylení.</p>
+      </div>
+    </div>
+
+    <h3>Vlastní vs. cizí opylení</h3>
+    <p>
+      <strong>Samoopylení (autogamie)</strong> – pyl ze stejného květu nebo téže rostliny. Jednodušší, ale snižuje genetickou variabilitu. Příklady: hrách setý, pšenice, ječmen.<br>
+      <strong>Cizosprašnost (allogamie)</strong> – přenos pylu mezi různými rostlinami. Zajišťuje genetickou různorodost. Rostliny tomu napomáhají: protandrie (nejprve zralé prašníky), protogynie (nejprve zralá blizna), odlišení výšky tyčinek a blizny.
+    </p>
+  </section>
+
+  <!-- =========================================================== -->
+  <section id="oplodneni">
+    <div class="section-number">07 / Oplodnění</div>
+    <h2>Dvojité oplodnění (Fertilisatio duplex)</h2>
+    <p>
+      Dvojité oplodnění je <strong>unikátní znak krytosemenných rostlin</strong>, poprvé popsán S. G. Navashinym (1898). Odehrává se v zárodečném váčku vajíčka.
+    </p>
+
+    <!-- SVG zárodečný váček -->
+    <div class="diagram-box">
+      <svg viewBox="0 0 680 340" width="100%" style="max-width:680px;">
+        <!-- Semeník – obrys -->
+        <ellipse cx="340" cy="180" rx="200" ry="140" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="2"/>
+        <!-- integumenty -->
+        <ellipse cx="340" cy="180" rx="155" ry="105" fill="#c8e6c9" stroke="#81c784" stroke-width="1.5"/>
+        <!-- nucel / zárodečný váček -->
+        <ellipse cx="340" cy="185" rx="110" ry="75" fill="#fff9c4" stroke="#f9a825" stroke-width="1.5"/>
+
+        <!-- vajíčko popis -->
+        <text x="340" y="90" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Zárodečný váček (7 buněk)</text>
+
+        <!-- vajíčko = vaječná buňka + 2 pomocné -->
+        <ellipse cx="270" cy="175" rx="22" ry="18" fill="#fff176" stroke="#f9a825" stroke-width="1.2"/>
+        <text x="270" y="178" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#555">♀ b.</text>
+        <ellipse cx="244" cy="168" rx="14" ry="12" fill="#fffde7" stroke="#f9a825" stroke-width="1"/>
+        <ellipse cx="244" cy="185" rx="14" ry="12" fill="#fffde7" stroke="#f9a825" stroke-width="1"/>
+
+        <!-- 2 polární jádra uprostřed -->
+        <ellipse cx="340" cy="185" rx="20" ry="15" fill="#ffe0b2" stroke="#ff8f00" stroke-width="1.5"/>
+        <ellipse cx="340" cy="185" rx="12" ry="8" fill="#ffcc02"/>
+        <text x="340" y="215" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#555">2× polární jádro</text>
+
+        <!-- antipody -->
+        <ellipse cx="410" cy="178" rx="14" ry="12" fill="#fffde7" stroke="#f9a825" stroke-width="1"/>
+        <ellipse cx="410" cy="196" rx="14" ry="12" fill="#fffde7" stroke="#f9a825" stroke-width="1"/>
+        <ellipse cx="430" cy="187" rx="14" ry="12" fill="#fffde7" stroke="#f9a825" stroke-width="1"/>
+        <text x="415" y="160" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#555">3 antipody</text>
+
+        <!-- mikropyle -->
+        <path d="M 200,205 Q 190,210 180,215" stroke="#7cb87a" stroke-width="2" fill="none"/>
+        <text x="165" y="230" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#2d6a4f" font-weight="600">mikropyle</text>
+
+        <!-- pylová láčka -->
+        <path d="M 100,280 Q 130,260 160,240 Q 185,225 210,215 Q 230,208 258,190" stroke="#e65100" stroke-width="2.5" fill="none" stroke-dasharray="6,3"/>
+        <text x="82" y="296" font-family="Source Serif 4,serif" font-size="11" fill="#e65100" font-weight="600">pylová láčka</text>
+        <!-- 2 spermie -->
+        <circle cx="255" cy="192" r="6" fill="#e65100" opacity="0.85"/>
+        <circle cx="242" cy="195" r="5" fill="#e65100" opacity="0.7"/>
+        <text x="220" y="230" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#e65100">2 spermie</text>
+
+        <!-- arrows - 2 fertilizations -->
+        <text x="340" y="305" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#388e3c">
+          spermie 1 + ♀ buňka → zygota → <tspan font-weight="600">zárodek</tspan>
+        </text>
+        <text x="340" y="322" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#e65100">
+          spermie 2 + 2× polární jádro → <tspan font-weight="600">triploidní endosperm</tspan>
+        </text>
+      </svg>
+      <p class="diagram-caption">Zárodečný váček a průběh dvojitého oplodnění</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Přistání pylu na blizně</h4>
+          <p>Pylové zrno dopadne na bliznu, rozpozná kompatibilitu (nebo spustí inkompatibilitu). Začíná klíčit.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Klíčení pylu – pylová láčka</h4>
+          <p>Z pylového zrna vyroste <span class="term">pylová láčka</span>, která prorůstá čnělkou až do semeníku k mikropyle vajíčka. Uvnitř jsou 2 spermie (samčí gametofyt).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>1. oplodnění – vznik zygoty (2n)</h4>
+          <p><strong>1. spermie (n)</strong> splyne s <strong>vaječnou buňkou (n)</strong> → <span class="term">zygota (2n)</span>, z níž se vyvine zárodek.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>2. oplodnění – vznik endospermu (3n)</h4>
+          <p><strong>2. spermie (n)</strong> splyne s <strong>dvěma polárními jádry (2n)</strong> → <span class="term">triploidní endosperm (3n)</span>, zásobní pletivo semene.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>Proč „dvojité"?</h4>
+      <p>Dochází ke dvěma oplodněním naráz: jednomu generativnímu (vzniká zárodek) a jednomu, které tvoří zásobní pletivo (endosperm). Tato strategie zajišťuje efektivní zásobování zárodku živinami a je evolučně výhodná.</p>
+    </div>
+  </section>
+
+  <!-- =========================================================== -->
+  <section id="semeno-plod">
+    <div class="section-number">08 / Semeno a plod</div>
+    <h2>Vznik semene a plodu</h2>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 680 200" width="100%" style="max-width:680px;">
+        <!-- Arrows showing transformation -->
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#2d6a4f"/>
+          </marker>
+        </defs>
+
+        <!-- vajíčko -->
+        <rect x="20" y="60" width="120" height="80" rx="10" fill="#c8e6c9" stroke="#66bb6a" stroke-width="1.5"/>
+        <text x="80" y="88" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Vajíčko</text>
+        <text x="80" y="106" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">→ integumenty</text>
+        <text x="80" y="120" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">→ nucel → endosperm</text>
+        <text x="80" y="134" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">→ zygota → zárodek</text>
+
+        <line x1="142" y1="100" x2="175" y2="100" stroke="#2d6a4f" stroke-width="2" marker-end="url(#arr)"/>
+        <text x="158" y="93" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#388e3c">po opl.</text>
+
+        <!-- semeno -->
+        <rect x="178" y="60" width="120" height="80" rx="10" fill="#fff9c4" stroke="#f9a825" stroke-width="1.5"/>
+        <text x="238" y="88" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Semeno</text>
+        <text x="238" y="106" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">osemení (testa)</text>
+        <text x="238" y="120" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">endosperm (3n)</text>
+        <text x="238" y="134" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">zárodek (2n)</text>
+
+        <line x1="300" y1="100" x2="333" y2="100" stroke="#2d6a4f" stroke-width="2" marker-end="url(#arr)"/>
+
+        <!-- semeník -->
+        <rect x="336" y="20" width="120" height="80" rx="10" fill="#ffccbc" stroke="#ff7043" stroke-width="1.5"/>
+        <text x="396" y="48" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Semeník</text>
+        <text x="396" y="65" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">stěna semeníku</text>
+        <text x="396" y="79" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">(= perikarp)</text>
+        <text x="396" y="93" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">+ okvětí / stopka</text>
+
+        <!-- šipka dolu na plod -->
+        <line x1="396" y1="102" x2="396" y2="125" stroke="#2d6a4f" stroke-width="2" marker-end="url(#arr)"/>
+
+        <!-- plod -->
+        <rect x="336" y="128" width="120" height="50" rx="10" fill="#ffadc0" stroke="#e91e63" stroke-width="1.5"/>
+        <text x="396" y="152" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Plod</text>
+        <text x="396" y="168" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">perikarp + semena</text>
+
+        <!-- kombinace -->
+        <line x1="458" y1="165" x2="491" y2="140" stroke="#2d6a4f" stroke-width="2" marker-end="url(#arr)"/>
+        <line x1="300" y1="115" x2="491" y2="135" stroke="#2d6a4f" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+
+        <!-- finální plod s osemením -->
+        <rect x="494" y="100" width="160" height="80" rx="10" fill="#e8f5e9" stroke="#2d6a4f" stroke-width="2"/>
+        <text x="574" y="128" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="#1a3a2a" font-weight="700">Plod se semeny</text>
+        <text x="574" y="145" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">perikarp</text>
+        <text x="574" y="159" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#555">= exo + mezo + endokarp</text>
+        <text x="574" y="173" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#888">jablko, malvice, peckovice…</text>
+      </svg>
+      <p class="diagram-caption">Přeměna vajíčka → semeno a semeník → plod</p>
+    </div>
+
+    <h3>Stavba semene</h3>
+    <table>
+      <thead><tr><th>Část semene</th><th>Vznik z</th><th>Funkce</th></tr></thead>
+      <tbody>
+        <tr><td>Osemení (testa)</td><td>integumenty</td><td>Ochrana zárodku před vysycháním a mechanickým poškozením</td></tr>
+        <tr><td>Endosperm (3n)</td><td>triploidní jádro</td><td>Zásobárna živin (škrob, tuky, bílkoviny) pro klíčení</td></tr>
+        <tr><td>Zárodek (embryo)</td><td>zygota</td><td>Budoucí rostlina: kořínek + hypokotylek + dělohy + pupen</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Typy plodů – přehled</h3>
+    <table>
+      <thead><tr><th>Typ</th><th>Popis</th><th>Příklady</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bobule</strong></td><td>dužnatý mezo- i endokarp</td><td>rajče, hrozen, kiwi, banán</td></tr>
+        <tr><td><strong>Peckovice</strong></td><td>dužnatý mezokarp, tvrdý endokarp (pecka)</td><td>třešeň, broskev, oliva, švestka</td></tr>
+        <tr><td><strong>Malvice</strong></td><td>zdužnatělé lůžko + semeník</td><td>jablko, hruška, kdoule</td></tr>
+        <tr><td><strong>Lusk</strong></td><td>suchý pukavý, 1 plodolistem</td><td>hrách, fazol, hrách setý</td></tr>
+        <tr><td><strong>Šešule</strong></td><td>suchý pukavý, 2 plodolisty</td><td>řepka, ředkvička, hořčice</td></tr>
+        <tr><td><strong>Nažka</strong></td><td>suchý nepukavý, 1 semeno</td><td>slunečnice, lípa, kopretina</td></tr>
+        <tr><td><strong>Obilka</strong></td><td>suchý, osemení srůstá s perikarpem</td><td>pšenice, žito, rýže, kukuřice</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =========================================================== -->
+  <section id="sireni">
+    <div class="section-number">09 / Šíření</div>
+    <h2>Šíření semen a plodů (Diaspora)</h2>
+    <p>
+      Plody a semena se různými způsoby dostávají od mateřské rostliny – tzv. <span class="term">disperze</span>. Jde o klíčový evoluční mechanismus umožňující kolonizaci nových stanovišť.
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>Větrem (anemochorie)</h4>
+        <p>Křídlatá semena, chlupy, chmýří (papus). Př.: vrba, topol, pampeliška, javor (nažky s křídlem – samara).</p>
+      </div>
+      <div class="card">
+        <h4>Živočichy (zoochorie)</h4>
+        <p><em>Epizoochorie</em> – háčky, ostny (lopuch, svízel). <em>Endozoochorie</em> – snězen v plodu, semena přežijí trávení (ptáci šíří bobule).</p>
+      </div>
+      <div class="card">
+        <h4>Vodou (hydrochorie)</h4>
+        <p>Plody plovoucí ve vodě nebo po dešti. Př.: kokosová palma (oceán), ostřice, blahovičníky v povodí řek.</p>
+      </div>
+      <div class="card">
+        <h4>Vlastní silou (autochorie)</h4>
+        <p>Mechanické vymrštění (balsám, toulavec, pryšec). Pukání suché tobolky za sucha.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>Shrnutí: Klíčové pojmy ke zvládnutí</h4>
+      <p>
+        kalich · koruna · androeceum · gynaeceum · lůžko · blizna · čnělka · semeník · vajíčko · mikropyle · integument · zárodečný váček · opylení · pylová láčka · zygota · endosperm · dvojité oplodnění · perikarp · plod · semeno
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer style="background:#1a3a2a; color:rgba(255,255,255,0.55); text-align:center; padding:24px; font-size:13px; font-family:'Source Serif 4',serif;">
+  Gymnázium Beroun · Biologie · 1. ročník · Stavba květu a rozmnožování krytosemenných rostlin
+</footer>
+
+</body>
+</html>
