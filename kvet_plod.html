@@ -1143,7 +1143,6 @@
         <g transform="translate(280,30)">
           <text x="40" y="0" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#1a3a2a" font-weight="700">Okolík</text>
           <line x1="40" y1="110" x2="40" y2="170" stroke="#5a8a3c" stroke-width="3"/>
-          <!-- radial lines from center -->
           <line x1="40" y1="110" x2="40" y2="60" stroke="#5a8a3c" stroke-width="1.5"/>
           <line x1="40" y1="110" x2="10" y2="68" stroke="#5a8a3c" stroke-width="1.5"/>
           <line x1="40" y1="110" x2="70" y2="68" stroke="#5a8a3c" stroke-width="1.5"/>
@@ -1157,29 +1156,35 @@
           <text x="40" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">česnek, prvosenka</text>
         </g>
 
-        <!-- 4. Chocholík -->
+        <!-- 4. Chocholík – OPRAVENO: dolní větve delší, všechny květy ve stejné výšce -->
         <g transform="translate(420,30)">
           <text x="40" y="0" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#1a3a2a" font-weight="700">Chocholík</text>
-          <line x1="40" y1="10" x2="40" y2="130" stroke="#5a8a3c" stroke-width="3"/>
-          <line x1="40" y1="50" x2="10" y2="75" stroke="#5a8a3c" stroke-width="1.5"/>
-          <line x1="40" y1="70" x2="20" y2="80" stroke="#5a8a3c" stroke-width="1.5"/>
-          <line x1="40" y1="90" x2="40" y2="90" stroke="#5a8a3c" stroke-width="1.5"/>
-          <line x1="40" y1="70" x2="60" y2="80" stroke="#5a8a3c" stroke-width="1.5"/>
-          <line x1="40" y1="50" x2="70" y2="75" stroke="#5a8a3c" stroke-width="1.5"/>
-          <use href="#flower-small" transform="translate(8,74)"/>
-          <use href="#flower-small" transform="translate(18,79)"/>
-          <use href="#flower-small" transform="translate(38,89)"/>
-          <use href="#flower-small" transform="translate(58,79)"/>
-          <use href="#flower-small" transform="translate(68,74)"/>
-          <text x="40" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">hlohy, třešeň</text>
+          <!-- hlavní osa – kratší, terminální květ nahoře -->
+          <line x1="40" y1="155" x2="40" y2="60" stroke="#5a8a3c" stroke-width="3"/>
+          <!-- terminální květ (nejmladší, uprostřed nahoře) -->
+          <use href="#flower-small" transform="translate(40,48)"/>
+          <!-- boční větve – čím níže na ose, tím delší stopka → všechny květy ve stejné rovině ~y=48 -->
+          <!-- větev vlevo 1 (z y=80, stopka délka 40) -->
+          <line x1="40" y1="80" x2="8" y2="48" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(-2,36)"/>
+          <!-- větev vpravo 1 (z y=80, stopka délka 40) -->
+          <line x1="40" y1="80" x2="72" y2="48" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(62,36)"/>
+          <!-- větev vlevo 2 (z y=108, stopka délka 66) -->
+          <line x1="40" y1="108" x2="-10" y2="48" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(-20,36)"/>
+          <!-- větev vpravo 2 (z y=108, stopka délka 66) -->
+          <line x1="40" y1="108" x2="90" y2="48" stroke="#5a8a3c" stroke-width="1.5"/>
+          <use href="#flower-small" transform="translate(80,36)"/>
+          <!-- šipka naznačující rovnou horní linii -->
+          <line x1="-22" y1="47" x2="92" y2="47" stroke="#c9a84c" stroke-width="1" stroke-dasharray="3,2" opacity="0.7"/>
+          <text x="40" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">hlohy, třešeň, jeřáb</text>
         </g>
 
         <!-- 5. Úbor -->
         <g transform="translate(545,30)">
           <text x="30" y="0" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#1a3a2a" font-weight="700">Úbor</text>
-          <!-- disk flowers in center -->
           <circle cx="30" cy="95" r="22" fill="#ffd060"/>
-          <!-- ray flowers around -->
           <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9"/>
           <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(40,30,95)"/>
           <ellipse cx="30" cy="60" rx="8" ry="22" fill="#ffadc0" opacity="0.9" transform="rotate(80,30,95)"/>
@@ -1193,7 +1198,92 @@
           <text x="30" y="185" text-anchor="middle" font-family="Source Serif 4,serif" font-size="10" fill="#666">slunečnice, kopretina</text>
         </g>
       </svg>
-      <p class="diagram-caption">Základní typy jednoduchých květenství</p>
+      <p class="diagram-caption">Základní typy jednoduchých květenství · zlatá čárkovaná linie u chocholíku = rovná horní rovina všech květů</p>
+    </div>
+
+    <!-- Složený okolík – samostatné schéma -->
+    <h3>Složený okolík (umbella composita)</h3>
+    <p>
+      <span class="term">Složený okolík</span> je typické květenství čeledi <em>Apiaceae</em> (miříkovité). Z jednoho bodu vybíhají <strong>paprsky 1. řádu</strong> (primární), na jejichž vrcholu se rozvíjí malý jednoduchý okolík – <strong>okolíček</strong>. Celé květenství tak vypadá jako plovoucí ploská „deštníková" plocha.
+    </p>
+    <div class="diagram-box">
+      <svg viewBox="0 0 500 260" width="100%" style="max-width:500px;">
+        <defs>
+          <g id="floret">
+            <circle r="5" fill="#ffadc0"/>
+            <circle r="2.5" fill="#ffd060"/>
+          </g>
+          <g id="umbellule">
+            <!-- malý okolíček: 6 kvítků kolem středu -->
+            <line x1="0" y1="0" x2="0" y2="-14" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="12" y2="-7" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="12" y2="7" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="0" y2="14" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="-12" y2="7" stroke="#5a8a3c" stroke-width="1.2"/>
+            <line x1="0" y1="0" x2="-12" y2="-7" stroke="#5a8a3c" stroke-width="1.2"/>
+            <use href="#floret" transform="translate(0,-14)"/>
+            <use href="#floret" transform="translate(12,-7)"/>
+            <use href="#floret" transform="translate(12,7)"/>
+            <use href="#floret" transform="translate(0,14)"/>
+            <use href="#floret" transform="translate(-12,7)"/>
+            <use href="#floret" transform="translate(-12,-7)"/>
+          </g>
+        </defs>
+
+        <!-- Hlavní stopka -->
+        <line x1="250" y1="240" x2="250" y2="170" stroke="#5a8a3c" stroke-width="4"/>
+        <!-- Středový bod -->
+        <circle cx="250" cy="170" r="5" fill="#2d6a4f"/>
+
+        <!-- 7 primárních paprsků z centra -->
+        <!-- vrchol -->
+        <line x1="250" y1="170" x2="250" y2="80" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(250,80)"/>
+
+        <!-- vpravo nahoře -->
+        <line x1="250" y1="170" x2="326" y2="98" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(326,98)"/>
+
+        <!-- vpravo -->
+        <line x1="250" y1="170" x2="348" y2="152" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(348,152)"/>
+
+        <!-- vpravo dole -->
+        <line x1="250" y1="170" x2="316" y2="218" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(316,218)"/>
+
+        <!-- vlevo dole -->
+        <line x1="250" y1="170" x2="184" y2="218" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(184,218)"/>
+
+        <!-- vlevo -->
+        <line x1="250" y1="170" x2="152" y2="152" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(152,152)"/>
+
+        <!-- vlevo nahoře -->
+        <line x1="250" y1="170" x2="174" y2="98" stroke="#5a8a3c" stroke-width="2"/>
+        <use href="#umbellule" transform="translate(174,98)"/>
+
+        <!-- Popisky -->
+        <text x="250" y="260" text-anchor="middle" font-family="Source Serif 4,serif" font-size="11" fill="#888" font-style="italic">mrkev, petržel, fenykl, bolševník, kmín</text>
+
+        <!-- Šipka + popis paprsku 1. řádu -->
+        <line x1="250" y1="170" x2="250" y2="80" stroke="none"/>
+        <text x="290" y="125" font-family="Source Serif 4,serif" font-size="10" fill="#2d6a4f" font-weight="600">paprsek</text>
+        <text x="290" y="137" font-family="Source Serif 4,serif" font-size="10" fill="#2d6a4f" font-weight="600">1. řádu</text>
+        <line x1="288" y1="128" x2="268" y2="128" stroke="#2d6a4f" stroke-width="0.8"/>
+
+        <!-- Popis okolíčku -->
+        <text x="388" y="96" font-family="Source Serif 4,serif" font-size="10" fill="#c9a84c" font-weight="600">okolíček</text>
+        <text x="388" y="108" font-family="Source Serif 4,serif" font-size="10" fill="#c9a84c">(umbellula)</text>
+        <line x1="386" y1="100" x2="342" y2="100" stroke="#c9a84c" stroke-width="0.8"/>
+
+        <!-- Středový bod popis -->
+        <text x="204" y="168" text-anchor="end" font-family="Source Serif 4,serif" font-size="10" fill="#1a3a2a" font-weight="600">střed</text>
+        <text x="204" y="180" text-anchor="end" font-family="Source Serif 4,serif" font-size="10" fill="#1a3a2a">okolíku</text>
+        <line x1="206" y1="172" x2="244" y2="170" stroke="#555" stroke-width="0.8"/>
+      </svg>
+      <p class="diagram-caption">Složený okolík (umbella composita) – 7 primárních paprsků, každý zakončen okolíčkem (umbellulou)</p>
     </div>
   </section>
 
